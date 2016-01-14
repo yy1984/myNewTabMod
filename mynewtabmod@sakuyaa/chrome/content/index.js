@@ -367,7 +367,7 @@ var myNewTabMod = {
 			}
 			
 			//本地图片
-			var filePath = OS.Path.join(this.dataFolder, this.PREFS.imageDir, enddate + '-' + name.replace(/[\/:*?\"\'<>|\s]/g, '') + '.jpg');
+			var filePath = OS.Path.join(this.dataFolder, this.PREFS.imageDir, enddate + '-' + name.replace(/(\s|\(.*?\))/g, '') .replace(/[\/:*?\"\'<>|\s]/g, '') + '.jpg');
 			var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
 			try {
 				file.initWithPath(filePath);
